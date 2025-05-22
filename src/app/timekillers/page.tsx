@@ -304,19 +304,19 @@ export default function TimekillersPage() {
               disabled={
                 reactionGameState === "waiting" || reactionGameState === "click"
               }
-              className={`px-6 py-3 rounded-full text-lg ${
+              className={`px-6 py-3 rounded-full text-lg font-bold transition-all duration-300 transform ${
                 reactionGameState === "waiting" || reactionGameState === "click"
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                  : "bg-green-500 hover:bg-green-600 text-white"
+                  : "bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 text-white shadow-md hover:shadow-lg hover:scale-105"
               }`}
             >
-              スタート
+              🚀 スタート
             </button>
             <button
               onClick={resetReactionGame}
-              className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-full text-lg"
+              className="px-6 py-3 bg-gradient-to-r from-red-400 to-pink-500 hover:from-red-500 hover:to-pink-600 text-white rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
             >
-              リセット
+              🔄 リセット
             </button>
           </div>
         </div>
