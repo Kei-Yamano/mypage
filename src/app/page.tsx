@@ -5,7 +5,12 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm">
-        <h1 className="text-4xl font-bold mb-8 text-center">自己紹介</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center">
+          面白いことを探したい。
+        </h1>
+        <h3 className="text-4xl font-bold mb-8 text-center">
+          自分事として捉えられ、共感できることを大切にしながら。
+        </h3>
 
         <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
           <div className="relative w-40 h-40 overflow-hidden rounded-full">
@@ -22,24 +27,6 @@ export default function Home() {
           <div>
             <h2 className="text-2xl font-semibold mb-2">山野 夏</h2>
             <p className="text-gray-600 mb-4">格ゲーマ</p>
-            <div className="flex gap-4">
-              <a
-                href="https://github.com/Kei-Yamano"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://twitter.com/yourname"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700"
-              >
-                Twitter
-              </a>
-            </div>
           </div>
         </div>
 
@@ -130,23 +117,34 @@ export default function Home() {
             までお気軽にご連絡ください。
           </p>
         </section>
+
         <section className="mb-12">
           <h3 className="text-xl font-semibold mb-4 border-b pb-2">便利機能</h3>
           <p className="mb-4">
-            レポートや卒論に役立つ3つのツールをご利用いただけます。
+            文字数カウントとポモドーロタイマーの機能を用意しています。
           </p>
-          <a
-            href="/tools"
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-          >
-            便利機能ページへ
-          </a>
+          {/* Fun easter egg */}
+          <div className="mt-12 text-center">
+            <p className="text-sm text-slate-400 mb-2">
+              🎯 何か楽しいことを探していますか？
+            </p>
+            <div className="flex justify-center gap-4">
+              <a
+                href="/pages/timekillers"
+                className="text-sm text-blue-500 hover:text-blue-700 transition-colors duration-300 hover:underline"
+              >
+                時間つぶし
+              </a>
+              <span className="text-slate-300">|</span>
+              <a
+                href="/pages/tools"
+                className="text-sm text-green-500 hover:text-green-700 transition-colors duration-300 hover:underline"
+              >
+                便利ツール
+              </a>
+            </div>
+          </div>
         </section>
-        <Link href="/timekillers">
-          <button className="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-full text-lg">
-            🎮 暇つぶしゲーム
-          </button>
-        </Link>
       </div>
     </main>
   );

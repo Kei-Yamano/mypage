@@ -58,31 +58,6 @@ export default function ToolsPage() {
   const charCount = text.length;
   const wordCount = text.trim().split(/\s+/).filter(Boolean).length;
 
-  // レポート提出カレンダー
-  const addAssignment = () => {
-    if (newAssignment && newDueDate) {
-      setAssignments([
-        ...assignments,
-        {
-          id: Date.now(), // 一意のIDを生成
-          name: newAssignment,
-          dueDate: newDueDate,
-        },
-      ]);
-      setNewAssignment("");
-      setNewDueDate("");
-    }
-  };
-
-  const removeAssignment = (id: number) => {
-    setAssignments(assignments.filter((assignment) => assignment.id !== id));
-  };
-
-  // 日付でソート
-  const sortedAssignments = [...assignments].sort(
-    (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
-  );
-
   return (
     <main className="max-w-3xl mx-auto p-6 space-y-12">
       {/* トップページに戻るボタン */}
@@ -144,84 +119,6 @@ export default function ToolsPage() {
             </button>
           </div>
         </div>
-      </section>
-
-      {/* 提出期限カレンダー */}
-      <section className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">
-          📅 レポート提出カレンダー
-        </h2>
-
-        {/* 新規課題入力フォーム */}
-        <div className="flex flex-col gap-4 mb-6">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                課題名
-              </label>
-              <input
-                type="text"
-                value={newAssignment}
-                onChange={(e) => setNewAssignment(e.target.value)}
-                placeholder="課題名を入力"
-                className="w-full p-2 border rounded"
-              />
-            </div>
-            <div className="md:w-40">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                提出期限
-              </label>
-              <input
-                type="date"
-                value={newDueDate}
-                onChange={(e) => setNewDueDate(e.target.value)}
-                className="w-full border rounded p-2"
-                min={new Date().toISOString().split("T")[0]}
-              />
-            </div>
-          </div>
-          <div>
-            <button
-              onClick={addAssignment}
-              disabled={!newAssignment || !newDueDate}
-              className={`px-4 py-2 rounded ${
-                newAssignment && newDueDate
-                  ? "bg-blue-500 hover:bg-blue-600 text-white"
-                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
-              }`}
-            >
-              課題を追加
-            </button>
-          </div>
-        </div>
-
-        {/* 課題リスト */}
-        {sortedAssignments.length > 0 ? (
-          <div className="border rounded divide-y">
-            {sortedAssignments.map((assignment) => (
-              <div
-                key={assignment.id}
-                className="flex justify-between items-center p-3 hover:bg-gray-50"
-              >
-                <div>
-                  <p className="font-medium">{assignment.name}</p>
-                  <p className="text-sm text-gray-500">
-                    提出期限:{" "}
-                    {new Date(assignment.dueDate).toLocaleDateString("ja-JP")}
-                  </p>
-                </div>
-                <button
-                  onClick={() => removeAssignment(assignment.id)}
-                  className="text-red-500 hover:text-red-700"
-                >
-                  削除
-                </button>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-gray-500 italic">課題はまだ登録されていません</p>
-        )}
       </section>
     </main>
   );
