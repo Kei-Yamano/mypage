@@ -11,9 +11,6 @@ export default function ToolsPage() {
   const [timeLeft, setTimeLeft] = useState(25 * 60); // 25分
   const [isBreak, setIsBreak] = useState(false);
   type Assignment = { id: number; name: string; dueDate: string };
-  const [assignments, setAssignments] = useState<Assignment[]>([]);
-  const [newAssignment, setNewAssignment] = useState("");
-  const [newDueDate, setNewDueDate] = useState("");
 
   // ポモドーロタイマー用の処理
   useEffect(() => {
