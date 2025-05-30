@@ -105,7 +105,7 @@ export default function Header() {
 }
 
 function NavigationMenu() {
-  const [activeTab, setActiveTab] = useState<string | null>(null);
+  //const [activeTab, setActiveTab] = useState<string | null>(null);
   const [underlineStyle, setUnderlineStyle] = useState({
     left: 0,
     width: 0,
@@ -135,13 +135,13 @@ function NavigationMenu() {
         width: targetRect.width,
         opacity: 1,
       });
-      setActiveTab(href);
+      //setActiveTab(href);
     }
   };
 
   const handleMouseLeave = () => {
     setUnderlineStyle((prev) => ({ ...prev, opacity: 0 }));
-    setActiveTab(null);
+    //setActiveTab(null);
   };
 
   return (
