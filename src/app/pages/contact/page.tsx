@@ -88,7 +88,7 @@ export default function Contact() {
                     href="mailto:contact@natscape.dev"
                     className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
                   >
-                    contact@natscape.dev
+                    s266318@wakayama-u.ac.jp
                   </a>
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function Contact() {
                   <h3 className="text-lg font-semibold text-slate-900 mb-2">
                     所在地
                   </h3>
-                  <p className="text-slate-600">東京都, 日本</p>
+                  <p className="text-slate-600">大阪府, 日本</p>
                   <p className="text-sm text-slate-500 mt-1">
                     リモートワーク対応可能
                   </p>

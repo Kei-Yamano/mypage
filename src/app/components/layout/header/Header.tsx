@@ -1,8 +1,6 @@
 "use client";
 
-import type React from "react";
-
-import { useState, useRef } from "react";
+import { useState, useRef, type MouseEvent } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -143,7 +141,6 @@ export default function Header() {
 }
 
 function NavigationMenu() {
-  const [activeTab, setActiveTab] = useState<string | null>(null);
   const [underlineStyle, setUnderlineStyle] = useState({
     left: 0,
     width: 0,
@@ -158,10 +155,7 @@ function NavigationMenu() {
     { href: "/pages/contact", label: "Contact" },
   ];
 
-  const handleMouseEnter = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
+  const handleMouseEnter = (event: MouseEvent<HTMLAnchorElement>) => {
     const target = event.currentTarget;
     const nav = navRef.current;
     if (nav && target) {
@@ -173,13 +167,11 @@ function NavigationMenu() {
         width: targetRect.width,
         opacity: 1,
       });
-      setActiveTab(href);
     }
   };
 
   const handleMouseLeave = () => {
     setUnderlineStyle((prev) => ({ ...prev, opacity: 0 }));
-    setActiveTab(null);
   };
 
   return (
@@ -193,7 +185,7 @@ function NavigationMenu() {
           key={item.href}
           href={item.href}
           className="relative group py-2"
-          onMouseEnter={(e) => handleMouseEnter(e, item.href)}
+          onMouseEnter={handleMouseEnter}
         >
           <span className="text-sm font-medium text-cyan-100 transition-colors duration-300 group-hover:text-white relative z-10 drop-shadow-sm">
             {item.label}
